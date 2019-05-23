@@ -5,6 +5,7 @@ import Images from './Images'
 import Buttons from './Buttons'
 import WakeUp from './WakeUp'
 import Footer from './Footer'
+import SimpleSlider from './SimpleSlider'
 import { API_URL } from './config'
 import './App.css'
 
