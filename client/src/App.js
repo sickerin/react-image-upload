@@ -5,7 +5,6 @@ import Images from './Images'
 import Buttons from './Buttons'
 import WakeUp from './WakeUp'
 import Footer from './Footer'
-import DynamicForm from './DynamicForm';
 import { API_URL } from './config'
 import './App.css'
 
@@ -129,7 +128,6 @@ export default class App extends Component {
         <div className='buttons'>
           {content()}
         </div>
-        <DynamicForm />
         <Footer />
       </div>
     )
