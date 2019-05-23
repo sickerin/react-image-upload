@@ -1,22 +1,35 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedo, faSlidersH } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faRedo, faSlidersH} from '@fortawesome/free-solid-svg-icons'
+import Fab from '@material-ui/core/Fab'
 
-export default () => (
-  <footer>
-    <a
-      href='https://google.com'
-      title='Sliders'
-      className={'small-button sliders'}
-    >
-      <FontAwesomeIcon icon={faSlidersH} size='3x' color='#fff' />
-    </a>
-    <a
-      href='https://google.com'
-      title='Redo'
-      className={'small-button redo'}
-    >
-      <FontAwesomeIcon icon={faRedo} size='3x' color='#fff' />
-    </a>
-  </footer>
-)
+// https://medium.com/@BogdanSoare/how-to-use-reacts-new-context-api-to-easily-manage-modals-2ae45c7def81
+
+class Footer extends React.Component {
+  state = {
+    open: false,
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  }
+
+  render() {
+    return (
+      <footer>
+        <Fab color="primary">
+          <FontAwesomeIcon icon={faSlidersH} size='2x' color='#fff'/>
+        </Fab>
+        <Fab color="primary">
+          <FontAwesomeIcon icon={faRedo} size='2x' color='#fff'/>
+        </Fab>
+      </footer>
+  )
+  }
+}
+
+export default Footer
