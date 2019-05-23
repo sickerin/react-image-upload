@@ -5,16 +5,17 @@ import Images from './Images'
 import Buttons from './Buttons'
 import WakeUp from './WakeUp'
 import Footer from './Footer'
+import DynamicForm from './DynamicForm';
 import { API_URL } from './config'
 import './App.css'
 
-const toastColor = { 
-  background: '#505050', 
-  text: '#fff' 
+const toastColor = {
+  background: '#505050',
+  text: '#fff'
 }
 
 export default class App extends Component {
-  
+
   state = {
     loading: true,
     uploading: false,
@@ -25,9 +26,9 @@ export default class App extends Component {
     fetch(`${API_URL}/wake-up`)
       .then(res => {
         if (res.ok) {
-          return this.setState({ loading: false })  
+          return this.setState({ loading: false })
         }
-        const msg = 'Something is went wrong with Heroku' 
+        const msg = 'Something is went wrong with Heroku'
         this.toast(msg, 'custom', 2000, toastColor)
       })
   }
@@ -35,12 +36,12 @@ export default class App extends Component {
   toast = notify.createShowQueue()
 
   onChange = e => {
-    const errs = [] 
+    const errs = []
     const files = Array.from(e.target.files)
 
     if (files.length > 3) {
       const msg = 'Only 3 images can be uploaded at a time'
-      return this.toast(msg, 'custom', 2000, toastColor)  
+      return this.toast(msg, 'custom', 2000, toastColor)
     }
 
     const formData = new FormData()
@@ -77,7 +78,7 @@ export default class App extends Component {
     })
     .then(images => {
       this.setState({
-        uploading: false, 
+        uploading: false,
         images
       })
     })
@@ -101,10 +102,10 @@ export default class App extends Component {
     this.toast('Oops, something went wrong', 'custom', 2000, toastColor)
     this.setState({ images: this.filter(id) })
   }
-  
+
   render() {
     const { loading, uploading, images } = this.state
-    
+
     const content = () => {
       switch(true) {
         case loading:
@@ -112,9 +113,9 @@ export default class App extends Component {
         case uploading:
           return <Spinner />
         case images.length > 0:
-          return <Images 
-                  images={images} 
-                  removeImage={this.removeImage} 
+          return <Images
+                  images={images}
+                  removeImage={this.removeImage}
                   onError={this.onError}
                  />
         default:
@@ -128,6 +129,7 @@ export default class App extends Component {
         <div className='buttons'>
           {content()}
         </div>
+        <DynamicForm />
         <Footer />
       </div>
     )
