@@ -5,7 +5,10 @@ import Images from './Images'
 import Buttons from './Buttons'
 import WakeUp from './WakeUp'
 import Footer from './Footer'
-import SimpleSlider from './SimpleSlider'
+import FormJSON from './FormJSON'
+import FormMaterialJSON from './FormMaterialJSON'
+/* import FormMaterial from './FormMaterial'
+import SimpleSlider from './SimpleSlider' */
 import { API_URL } from './config'
 import './App.css'
 
@@ -129,6 +132,8 @@ export default class App extends Component {
         <div className='buttons'>
           {content()}
         </div>
+        <FormJSON />
+        {/* <FormMaterialJSON /> */}
         <Footer />
       </div>
     )

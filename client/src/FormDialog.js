@@ -6,6 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Fab from '@material-ui/core/Fab'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSlidersH} from '@fortawesome/free-solid-svg-icons'
 
 export default class FormDialog extends React.Component {
   state = {
@@ -23,9 +26,9 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open form dialog
-        </Button>
+        <Fab color="primary" onClick={this.handleClickOpen}>
+          <FontAwesomeIcon icon={faSlidersH} size='2x' color='#fff' />
+        </Fab>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
