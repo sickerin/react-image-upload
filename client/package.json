@@ -10,6 +10,7 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^4.0.1",
     "@material-ui/lab": "^3.0.0-alpha.30",
+    "axios": "^0.18.0",
     "jsonschema-form-for-material-ui": "^1.4.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
